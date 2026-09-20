@@ -1,10 +1,31 @@
 {
+  "manifest_version": 3,
   "name": "Tab Reopen",
   "description": "Reopen closed tabs",
   "version": "1.0",
-  "manifest_version": 3,
+  "icons": {
+    "16": "images/gear.png",
+    "32": "images/gear.png",
+    "48": "images/gear.png",
+    "128": "images/gear.png"
+  },
   "action": {
     "default_popup": "test.html",
-    "default_icon": "icon.png"
-  }
+    "default_icon": "images/gear.png"
+  },
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "permissions": ["storage", "alarms"],
+  "minimum_chrome_version": "102",
+  "omnibox": {
+    "keyword": "api"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://developer.chrome.com/docs/extensions/reference/*"],
+      "js": ["content.js"]
+    }
+  ]
 }
