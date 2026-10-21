@@ -17,15 +17,15 @@
     "service_worker": "service-worker.js",
     "type": "module"
   },
-  "permissions": ["storage", "alarms"],
-  "minimum_chrome_version": "102",
-  "omnibox": {
-    "keyword": "api"
-  },
-  "content_scripts": [
-    {
-      "matches": ["https://developer.chrome.com/docs/extensions/reference/*"],
-      "js": ["content.js"]
+  "incognito": "split",
+  "permissions": ["tabs", "storage"],
+  "commands": {
+    "reopen-tab": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+H"
+      },
+      "description": "reopen closed tab"
     }
-  ]
+  },
+  "minimum_chrome_version": "102"
 }
